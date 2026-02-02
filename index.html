@@ -17,9 +17,7 @@
       background: linear-gradient(135deg, #ffd6e7, #ffeef6);
       font-family: Arial, sans-serif;
     }
-
     .card {
-      position: relative; /* IMPORTANT */
       background: white;
       padding: 30px;
       border-radius: 20px;
@@ -27,15 +25,12 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.2);
       width: 90%;
       max-width: 400px;
-      height: 300px;
-      overflow: hidden; /* IMPORTANT */
     }
-
     h1 {
-      font-size: 24px;
-      margin-bottom: 30px;
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #111;
     }
-
     button {
       padding: 14px 26px;
       font-size: 18px;
@@ -43,20 +38,16 @@
       border: none;
       border-radius: 50px;
       cursor: pointer;
+      margin: 10px;
     }
-
     #yes {
       background: #ff3b7a;
       color: white;
     }
-
     #no {
       background: #e5e7eb;
-      position: absolute; /* moves inside card */
-      top: 180px;
-      left: 200px;
+      position: absolute;
     }
-
     #result {
       display: none;
       margin-top: 20px;
@@ -70,7 +61,7 @@
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_0c8a6cda45.mp3" type="audio/mpeg">
 </audio>
 
-<div class="card" id="card">
+<div class="card">
   <h1>Vaishnavi, will you be my Valentine? 💖</h1>
 
   <button id="yes">Yes</button>
@@ -78,14 +69,13 @@
 
   <div id="result">
     <h2>YAYYY!!! 🎉💞</h2>
-    <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" width="220">
+    <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" width="250">
   </div>
 </div>
 
 <script>
   const yes = document.getElementById("yes");
   const no = document.getElementById("no");
-  const card = document.getElementById("card");
   const result = document.getElementById("result");
   const music = document.getElementById("music");
 
@@ -97,17 +87,8 @@
   };
 
   no.onmouseover = () => {
-    const cardRect = card.getBoundingClientRect();
-    const noRect = no.getBoundingClientRect();
-
-    const maxX = cardRect.width - noRect.width;
-    const maxY = cardRect.height - noRect.height;
-
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-
-    no.style.left = x + "px";
-    no.style.top = y + "px";
+    no.style.left = Math.random() * 80 + "%";
+    no.style.top = Math.random() * 80 + "%";
   };
 </script>
 
